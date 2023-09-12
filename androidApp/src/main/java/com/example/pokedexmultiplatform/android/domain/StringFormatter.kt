@@ -2,7 +2,7 @@ package com.example.pokedexmultiplatform.android.domain
 
 import java.util.Locale
 
-object StingFormatter {
+object StringFormatter {
 
     fun changeFirstLetterToUppercaseAndDeleteMiddleDash(str: String): String {
         return changeFirstLetterToUppercase(str).replace("-", " ")

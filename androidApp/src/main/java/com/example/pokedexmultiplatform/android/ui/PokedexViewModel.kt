@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokedexmultiplatform.android.data.repository.PokedexMainRepository
 import com.example.pokedexmultiplatform.android.domain.Pokedex
+import com.example.pokedexmultiplatform.android.domain.PokedexResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
@@ -48,5 +49,6 @@ class PokedexViewModel @Inject constructor(pokedexMainRepository: PokedexMainRep
         }
     }
 
+    fun getPokedex() : List<PokedexResponse> = pokedex.value!!.results
 
 }
