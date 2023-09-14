@@ -26,50 +26,79 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.pokedexmultiplatform.android.R
 import com.example.pokedexmultiplatform.android.domain.navigation.PokedexScreens
-import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
 
 
 @Composable
-    fun PokedexStart(pokedexViewModel: PokedexViewModel, navController: NavController) {
+fun PokedexStart(navController: NavController) {
 
-        Box(modifier = Modifier
+    Box(
+        modifier = Modifier
             .fillMaxSize()
             .safeContentPadding()
-            .padding(2.dp)) {
+    ) {
 
-            PokedexLog(pokedexViewModel,navController)
-        }
+        Image(
+            painter = painterResource(id = R.drawable.pokedex_background),
+            contentDescription = "Fondo de imagen",
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillWidth
+        )
+
+        PokedexLog(navController)
     }
+}
 
-    @Composable
-    private fun PokedexLog(pokedexViewModel: PokedexViewModel, navController: NavController) {
+@Composable
+private fun PokedexLog(navController: NavController) {
 
-        Column(modifier = Modifier
+    Column(
+        modifier = Modifier
             .fillMaxSize()
             .safeContentPadding()
-            .padding(5.dp), verticalArrangement = Arrangement.Top, horizontalAlignment = Alignment.CenterHorizontally) {
+            .padding(5.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
-            Spacer(modifier = Modifier.padding(vertical = 20.dp))
+        Spacer(modifier = Modifier.padding(vertical = 20.dp))
 
-            Text(text = "Bienvenido a tu", fontWeight = FontWeight.Bold, fontSize = 40.sp, textAlign = TextAlign.Center, fontFamily = FontFamily.SansSerif, color = Color.DarkGray)
+        Text(
+            text = "Bienvenido a tu",
+            fontWeight = FontWeight.Bold,
+            fontSize = 45.sp,
+            textAlign = TextAlign.Center,
+            fontFamily = FontFamily.SansSerif,
+            color = Color.DarkGray
+        )
 
-            Image(painter = painterResource(id = R.drawable.pokedex_logo), contentDescription = "Pokedex Logo", contentScale = ContentScale.FillWidth, modifier = Modifier.fillMaxWidth())
+        Image(
+            painter = painterResource(id = R.drawable.pokedex_logo),
+            contentDescription = "Pokedex Logo",
+            contentScale = ContentScale.FillWidth,
+            modifier = Modifier.fillMaxWidth()
+        )
 
-            Spacer(modifier = Modifier.padding(vertical = 40.dp))
+        Spacer(modifier = Modifier.padding(vertical = 40.dp))
 
-            IconButton(onClick = {navController.navigate(PokedexScreens.PokedexScreen.route)}){
-                Image(painter = painterResource(id = R.drawable.pokeball),
-                    contentDescription = "Pokedex Logo",
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .size(250.dp)
-                )
-            }
-
-            Text(text = "Entrar", fontWeight = FontWeight.Medium, fontSize = 30.sp, textAlign = TextAlign.Center, fontFamily = FontFamily.SansSerif, color = Color.DarkGray)
-
-
-
+        IconButton(onClick = { navController.navigate(PokedexScreens.PokedexScreen.route) }) {
+            Image(
+                painter = painterResource(id = R.drawable.pokeball),
+                contentDescription = "Pokeball image",
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .size(250.dp)
+            )
         }
+
+        Text(
+            text = "Pulsa la Pokeball para entrar",
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 28.sp,
+            textAlign = TextAlign.Center,
+            fontFamily = FontFamily.SansSerif,
+            color = Color.DarkGray
+        )
+
+
     }
+}

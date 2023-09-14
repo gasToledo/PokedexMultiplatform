@@ -1,5 +1,6 @@
 package com.example.pokedexmultiplatform.android.ui.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -40,6 +42,13 @@ import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
 fun PokedexScreen(pokedexViewModel: PokedexViewModel) {
 
     val pokedexList by pokedexViewModel.pokedex.observeAsState(PokedexScreenState.Loading)
+
+    Image(
+        painter = painterResource(id = R.drawable.pokedex_background),
+        contentDescription = "Fondo de imagen",
+        modifier = Modifier.fillMaxSize(),
+        contentScale = ContentScale.FillWidth
+    )
 
     when (pokedexList) {
         PokedexScreenState.Error -> TODO()

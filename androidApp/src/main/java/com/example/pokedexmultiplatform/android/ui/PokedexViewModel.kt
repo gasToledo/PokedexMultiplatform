@@ -22,14 +22,14 @@ class PokedexViewModel @Inject constructor(pokedexMainRepository: PokedexReposit
     ViewModel() {
 
     private val _pokedex = MutableLiveData<PokedexScreenState>(PokedexScreenState.Loading)
-    val pokedex : LiveData<PokedexScreenState> = _pokedex
+    val pokedex: LiveData<PokedexScreenState> = _pokedex
 
     var screenUbication by mutableStateOf("pokedex_screen")
 
 
     init {
         viewModelScope.launch {
-           _pokedex.value = PokedexScreenState.ShowPokedex(pokedexMainRepository.getPokedex())
+            _pokedex.value = PokedexScreenState.ShowPokedex(pokedexMainRepository.getPokedex())
         }
     }
 }
