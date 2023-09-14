@@ -23,8 +23,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.pokedexmultiplatform.android.R
 import com.example.pokedexmultiplatform.android.domain.navigation.PokedexScreens
@@ -32,7 +30,7 @@ import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
 
 
 @Composable
-    fun PokedexStart(pokedexViewModel: PokedexViewModel = hiltViewModel(), navController: NavController) {
+    fun PokedexStart(pokedexViewModel: PokedexViewModel, navController: NavController) {
 
         Box(modifier = Modifier
             .fillMaxSize()
@@ -44,7 +42,7 @@ import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
     }
 
     @Composable
-    private fun PokedexLog(pokedexViewModel: PokedexViewModel = hiltViewModel(), navController: NavController) {
+    private fun PokedexLog(pokedexViewModel: PokedexViewModel, navController: NavController) {
 
         Column(modifier = Modifier
             .fillMaxSize()

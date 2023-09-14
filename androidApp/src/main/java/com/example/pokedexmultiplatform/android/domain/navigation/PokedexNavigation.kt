@@ -1,19 +1,15 @@
 package com.example.pokedexmultiplatform.android.domain.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHost
-import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
 import com.example.pokedexmultiplatform.android.ui.screen.PokedexScreen
 import com.example.pokedexmultiplatform.android.ui.screen.PokedexStart
 
 @Composable
-fun PokedexNavigation(pokedexViewModel: PokedexViewModel = hiltViewModel()) {
+fun PokedexNavigation(pokedexViewModel: PokedexViewModel) {
 
     val navcontroller = rememberNavController()
 
@@ -27,7 +23,7 @@ fun PokedexNavigation(pokedexViewModel: PokedexViewModel = hiltViewModel()) {
 
         composable(route = PokedexScreens.PokedexScreen.route){
             pokedexViewModel.screenUbication = "pokedex_screen"
-            PokedexScreen()
+            PokedexScreen(pokedexViewModel)
 
         }
     }

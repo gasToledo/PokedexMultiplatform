@@ -1,6 +1,6 @@
 package com.example.pokedexmultiplatform.android.ui
 
-import com.example.pokedexmultiplatform.android.domain.Pokedex
+import com.example.pokedexmultiplatform.android.domain.PokedexResponse
 
 sealed class PokedexScreenState {
 
@@ -8,5 +8,6 @@ sealed class PokedexScreenState {
 
     object Error : PokedexScreenState()
 
-    class ShowPokedex(val pokedex: Pokedex) : PokedexScreenState()
+    class ShowPokedex(val pokedex: List<PokedexResponse>) : PokedexScreenState()
+
 }

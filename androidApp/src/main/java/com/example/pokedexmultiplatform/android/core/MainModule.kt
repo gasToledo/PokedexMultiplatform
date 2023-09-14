@@ -28,5 +28,5 @@ object MainModule {
 
     @Provides
     @Singleton
-    fun providePokedexRepository(pokedexRepository: PokedexRepositoryImp): PokedexRepository = pokedexRepository
+    fun providePokedexRepository(pokedexService: PokedexService): PokedexRepository = PokedexRepositoryImp(pokedexService)
 }
