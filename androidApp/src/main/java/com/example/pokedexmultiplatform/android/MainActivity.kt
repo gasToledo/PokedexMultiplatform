@@ -9,20 +9,24 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
+import com.example.pokedexmultiplatform.android.domain.navigation.PokedexNavigation
 import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
 import com.example.pokedexmultiplatform.android.ui.screen.PokedexScreen
+import com.example.pokedexmultiplatform.android.ui.screen.PokedexStart
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val pokedexViewModel by viewModels<PokedexViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PokedexTheme {
-                PokedexScreen(pokedexViewModel)
-                Text(text = "hello world")
+            Surface {
+                PokedexTheme(darkTheme = false) {
+                    PokedexNavigation(pokedexViewModel = pokedexViewModel)
+                }
             }
         }
     }
