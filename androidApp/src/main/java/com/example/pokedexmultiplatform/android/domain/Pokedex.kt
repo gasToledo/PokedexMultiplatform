@@ -10,5 +10,5 @@ data class Pokedex(
     @SerializedName(value = "previous")
     val previous: String,
     @SerializedName(value = "results")
-    val results: List<PokedexResponse>
+    val responses: List<PokedexResponse>
 )

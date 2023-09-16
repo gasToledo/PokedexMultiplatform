@@ -7,6 +7,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.ktor.client.HttpClient
+import io.ktor.util.KtorDsl
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -22,11 +24,26 @@ object MainModule {
             .baseUrl("https://pokeapi.co/api/v2/")
             .build()
 
+    /*@Singleton
     @Provides
-    @Singleton
-    fun providesPokedexService(retrofit: Retrofit) = retrofit.create(PokedexService::class.java)
+    fun provideHttpClient(): HttpClient =
+        HttpClient {
+            install(ContentNegotiation) {
+                json(
+                    Json {
+                    ignoreUnkownKey = true
+                })
+            }
+        }*/
+
 
     @Provides
     @Singleton
-    fun providePokedexRepository(pokedexService: PokedexService): PokedexRepository = PokedexRepositoryImp(pokedexService)
+    fun providesPokedexService(retrofit: Retrofit): PokedexService =
+        retrofit.create(PokedexService::class.java)
+
+    @Provides
+    @Singleton
+    fun providePokedexRepository(pokedexService: PokedexService): PokedexRepository =
+        PokedexRepositoryImp(pokedexService)
 }

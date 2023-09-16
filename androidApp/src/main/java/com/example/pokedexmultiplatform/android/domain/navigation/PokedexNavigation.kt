@@ -15,13 +15,13 @@ fun PokedexNavigation(pokedexViewModel: PokedexViewModel) {
 
 
     NavHost(navController = navcontroller, startDestination = PokedexScreens.PokedexStart.route) {
-        composable(route = PokedexScreens.PokedexStart.route){
+        composable(route = PokedexScreens.PokedexStart.route) {
             pokedexViewModel.screenUbication = "pokedex_start"
             PokedexStart(navcontroller)
 
         }
 
-        composable(route = PokedexScreens.PokedexScreen.route){
+        composable(route = PokedexScreens.PokedexScreen.route) {
             pokedexViewModel.screenUbication = "pokedex_screen"
             PokedexScreen(pokedexViewModel)
 
