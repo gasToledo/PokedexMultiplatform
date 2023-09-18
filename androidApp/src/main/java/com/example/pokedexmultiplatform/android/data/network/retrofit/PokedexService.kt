@@ -1,6 +1,6 @@
-package com.example.pokedexmultiplatform.android.data.network
+package com.example.pokedexmultiplatform.android.data.network.retrofit
 
-import com.example.pokedexmultiplatform.android.domain.Pokedex
+import com.example.pokedexmultiplatform.android.domain.serializable.Pokedex
 import retrofit2.Response
 import retrofit2.http.GET
 

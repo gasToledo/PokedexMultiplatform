@@ -1,14 +1,17 @@
 package com.example.pokedexmultiplatform.android.core
 
-import com.example.pokedexmultiplatform.android.data.network.PokedexRepository
-import com.example.pokedexmultiplatform.android.data.network.PokedexRepositoryImp
-import com.example.pokedexmultiplatform.android.data.network.PokedexService
+import com.example.pokedexmultiplatform.android.data.network.ktor.PokedexKtorRepository
+import com.example.pokedexmultiplatform.android.data.network.retrofit.PokedexRepository
+import com.example.pokedexmultiplatform.android.data.network.retrofit.PokedexRepositoryImp
+import com.example.pokedexmultiplatform.android.data.network.retrofit.PokedexService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
-import io.ktor.util.KtorDsl
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -17,25 +20,30 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object MainModule {
 
-    @Singleton
+
     @Provides
+    @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://pokeapi.co/api/v2/")
             .build()
 
-    /*@Singleton
+
     @Provides
+    @Singleton
     fun provideHttpClient(): HttpClient =
         HttpClient {
             install(ContentNegotiation) {
-                json(
-                    Json {
-                    ignoreUnkownKey = true
+                json(Json {
+                    ignoreUnknownKeys = true
                 })
             }
-        }*/
+        }
 
+    @Provides
+    @Singleton
+    fun providePokedexKtorRepository(httpClient: HttpClient): PokedexKtorRepository =
+        PokedexKtorRepository(httpClient)
 
     @Provides
     @Singleton

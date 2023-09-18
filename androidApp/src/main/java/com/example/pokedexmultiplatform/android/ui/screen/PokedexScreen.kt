@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.pokedexmultiplatform.android.R
 import com.example.pokedexmultiplatform.android.data.network.ImageBuilder
-import com.example.pokedexmultiplatform.android.domain.PokedexResponse
+import com.example.pokedexmultiplatform.android.domain.serializable.PokedexResponse
 import com.example.pokedexmultiplatform.android.ui.PokedexScreenState
 import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
 

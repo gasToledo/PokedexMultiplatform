@@ -7,13 +7,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pokedexmultiplatform.android.data.network.PokedexRepository
+import com.example.pokedexmultiplatform.android.data.network.ktor.PokedexKtorRepository
+import com.example.pokedexmultiplatform.android.data.network.retrofit.PokedexRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PokedexViewModel @Inject constructor(pokedexMainRepository: PokedexRepository) :
+class PokedexViewModel @Inject constructor(pokedexMainRepository: PokedexRepository, pokedexKtorRepository: PokedexKtorRepository) :
     ViewModel() {
 
     private val _pokedex = MutableLiveData<PokedexScreenState>(PokedexScreenState.Loading)
@@ -24,7 +25,8 @@ class PokedexViewModel @Inject constructor(pokedexMainRepository: PokedexReposit
 
     init {
         viewModelScope.launch {
-            _pokedex.value = PokedexScreenState.ShowPokedex(pokedexMainRepository.getPokedex())
+            //_pokedex.value = PokedexScreenState.ShowPokedex(pokedexMainRepository.getPokedex())
+            _pokedex.value = PokedexScreenState.ShowPokedex(pokedexKtorRepository.getPokedex().responses)
         }
     }
 }
