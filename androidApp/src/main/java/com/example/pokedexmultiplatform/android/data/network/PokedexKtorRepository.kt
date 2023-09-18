@@ -1,4 +1,4 @@
-package com.example.pokedexmultiplatform.android.data.network.ktor
+package com.example.pokedexmultiplatform.android.data.network
 
 import com.example.pokedexmultiplatform.android.domain.serializable.Pokedex
 import io.ktor.client.HttpClient

@@ -1,9 +1,6 @@
 package com.example.pokedexmultiplatform.android.core
 
-import com.example.pokedexmultiplatform.android.data.network.ktor.PokedexKtorRepository
-import com.example.pokedexmultiplatform.android.data.network.retrofit.PokedexRepository
-import com.example.pokedexmultiplatform.android.data.network.retrofit.PokedexRepositoryImp
-import com.example.pokedexmultiplatform.android.data.network.retrofit.PokedexService
+import com.example.pokedexmultiplatform.android.data.network.PokedexKtorRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,8 +9,6 @@ import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -21,12 +16,12 @@ import javax.inject.Singleton
 object MainModule {
 
 
-    @Provides
+    /*@Provides
     @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://pokeapi.co/api/v2/")
-            .build()
+            .build()*/
 
 
     @Provides
@@ -45,7 +40,7 @@ object MainModule {
     fun providePokedexKtorRepository(httpClient: HttpClient): PokedexKtorRepository =
         PokedexKtorRepository(httpClient)
 
-    @Provides
+    /*@Provides
     @Singleton
     fun providesPokedexService(retrofit: Retrofit): PokedexService =
         retrofit.create(PokedexService::class.java)
@@ -53,5 +48,5 @@ object MainModule {
     @Provides
     @Singleton
     fun providePokedexRepository(pokedexService: PokedexService): PokedexRepository =
-        PokedexRepositoryImp(pokedexService)
+        PokedexRepositoryImp(pokedexService)*/
 }
