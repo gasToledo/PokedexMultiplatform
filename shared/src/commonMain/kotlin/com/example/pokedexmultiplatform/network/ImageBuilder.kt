@@ -1,4 +1,4 @@
-package com.example.pokedexmultiplatform.android.data.network
+package com.example.pokedexmultiplatform.network
 
 object ImageBuilder {
 
@@ -6,4 +6,5 @@ object ImageBuilder {
         val pokemonId = detailUrl.split('/')[6]
         return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$pokemonId.png"
     }
+
 }

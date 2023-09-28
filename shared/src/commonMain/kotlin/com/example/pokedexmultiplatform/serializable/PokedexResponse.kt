@@ -1,4 +1,4 @@
-package com.example.pokedexmultiplatform.android.domain.serializable
+package com.example.pokedexmultiplatform.serializable
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -10,3 +10,4 @@ data class PokedexResponse(
     @SerialName(value = "url")
     val url: String
 )
+

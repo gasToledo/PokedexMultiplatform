@@ -33,10 +33,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.pokedexmultiplatform.android.R
-import com.example.pokedexmultiplatform.android.data.network.ImageBuilder
-import com.example.pokedexmultiplatform.android.domain.serializable.PokedexResponse
 import com.example.pokedexmultiplatform.android.ui.PokedexScreenState
 import com.example.pokedexmultiplatform.android.ui.PokedexViewModel
+import com.example.pokedexmultiplatform.network.ImageBuilder
+import com.example.pokedexmultiplatform.serializable.PokedexResponse
 
 @Composable
 fun PokedexScreen(pokedexViewModel: PokedexViewModel) {

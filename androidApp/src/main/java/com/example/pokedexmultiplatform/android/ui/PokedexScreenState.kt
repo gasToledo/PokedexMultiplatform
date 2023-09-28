@@ -1,6 +1,6 @@
 package com.example.pokedexmultiplatform.android.ui
 
-import com.example.pokedexmultiplatform.android.domain.serializable.PokedexResponse
+import com.example.pokedexmultiplatform.serializable.PokedexResponse
 
 sealed class PokedexScreenState {
 
